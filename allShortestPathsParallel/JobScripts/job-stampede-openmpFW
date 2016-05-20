@@ -1,0 +1,9 @@
+#!/bin/bash
+#SBATCH -A TG-CCR140008
+#SBATCH -J fw-openmp
+#SBATCH -o fw-openmp.stdout
+#SBATCH -n 16         
+#SBATCH -p normal
+#SBATCH -t 00:10:00     
+export OMP_NUM_THREADS=8
+./openmpFW -n 500 -s opfw.txt

@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH -A TG-CCR140008
+#SBATCH -J auto-asp-openmpDS
+#SBATCH -o auto-asp-openmpDS.stdout
+#SBATCH -n 16         
+#SBATCH -p normal
+#SBATCH -t 00:10:00 
+    
+export OMP_NUM_THREADS=1
+./openmpDS -n 500 -s openmp_sumDS.txt
+export OMP_NUM_THREADS=2
+./openmpDS -n 500 -s openmp_sumDS.txt
+export OMP_NUM_THREADS=4
+./openmpDS -n 500 -s openmp_sumDS.txt
+export OMP_NUM_THREADS=8
+./openmpDS -n 500 -s openmp_sumDS.txt
+export OMP_NUM_THREADS=2
+./openmpDS -n 1000 -s openmp_sumDS.txt
+export OMP_NUM_THREADS=4
+./openmpDS -n 2000 -s openmp_sumDS.txt
+export OMP_NUM_THREADS=8
+./openmpDS -n 4000 -s openmp_sumDS.txt

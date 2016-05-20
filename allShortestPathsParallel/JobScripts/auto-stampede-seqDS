@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -A TG-CCR140008
+#SBATCH -J auto-asp-serialDS
+#SBATCH -o auto-asp-serialDS.stdout
+#SBATCH -n 1         
+#SBATCH -p normal
+#SBATCH -t 00:10:00
+     
+rm serial_sumDS.txt
+./sequentialDS -n 500 -s serial_sumDS.txt
+./sequentialDS -n 1000 -s serial_sumDS.txt
+./sequentialDS -n 2000 -s serial_sumDS.txt
+./sequentialDS -n 4000 -s serial_sumDS.txt

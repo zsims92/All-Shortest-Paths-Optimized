@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -A TG-CCR140008
+#SBATCH -J auto-asp-serialFW
+#SBATCH -o auto-asp-serialFW.stdout
+#SBATCH -n 1         
+#SBATCH -p normal
+#SBATCH -t 00:10:00
+     
+rm serial_sumFW.txt
+./sequentialFW -n 500 -s serial_sumFW.txt
+./sequentialFW -n 1000 -s serial_sumFW.txt
+./sequentialFW -n 2000 -s serial_sumFW.txt
+./sequentialFW -n 4000 -s serial_sumFW.txt

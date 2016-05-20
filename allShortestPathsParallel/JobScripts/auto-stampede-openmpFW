@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH -A TG-CCR140008
+#SBATCH -J auto-asp-openmpFW
+#SBATCH -o auto-asp-openmpFW.stdout
+#SBATCH -n 16         
+#SBATCH -p normal
+#SBATCH -t 00:10:00 
+    
+export OMP_NUM_THREADS=1
+./openmpFW -n 500 -s openmp_sumFW.txt
+export OMP_NUM_THREADS=2
+./openmpFW -n 500 -s openmp_sumFW.txt
+export OMP_NUM_THREADS=4
+./openmpFW -n 500 -s openmp_sumFW.txt
+export OMP_NUM_THREADS=8
+./openmpFW -n 500 -s openmp_sumFW.txt
+export OMP_NUM_THREADS=2
+./openmpFW -n 1000 -s openmp_sumFW.txt
+export OMP_NUM_THREADS=4
+./openmpFW -n 2000 -s openmp_sumFW.txt
+export OMP_NUM_THREADS=8
+./openmpFW -n 4000 -s openmp_sumFW.txt

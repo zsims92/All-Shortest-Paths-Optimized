@@ -1,0 +1,5 @@
+rm: cannot remove `serial_sumFW.txt': No such file or directory
+0.35612
+8.35354
+114.666
+slurmd[c428-102]: *** JOB 5182081 CANCELLED AT 2015-04-29T00:07:20 DUE TO TIME LIMIT ***
